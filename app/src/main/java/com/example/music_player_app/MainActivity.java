@@ -7,9 +7,11 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.SeekBar;
+import android.widget.Toast;
+
+import java.io.IOException;
 
 public class MainActivity extends AppCompatActivity {
-    private Button play;
     private Button prev;
     private Button next;
     private SeekBar seekBar;
@@ -19,8 +21,31 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        play = findViewById(R.id.play);
-        MediaPlayer mp = MediaPlayer.create(MainActivity.this, R.raw.insane);
-        mp.start();
+        Button play = findViewById(R.id.play);
+        seekBar = findViewById(R.id.seekBar);
+
+        MediaPlayer mediaPlayer = new MediaPlayer();
+        try {
+            mediaPlayer.setDataSource("http://socialdance.stanford.edu/music/Durang_Lancers_1.m4a");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        mediaPlayer.setOnPreparedListener(new MediaPlayer.OnPreparedListener() {
+            @Override
+            public void onPrepared(MediaPlayer mp) {
+                Toast.makeText(MainActivity.this, "Ready to play", Toast.LENGTH_SHORT).show();
+                mp.start();
+            }
+        });
+        mediaPlayer.prepareAsync(); 
+
+        play.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                mediaPlayer.start();
+
+            }
+        });
         }
     }
