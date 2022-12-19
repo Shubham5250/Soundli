@@ -15,6 +15,7 @@ public class MainActivity extends AppCompatActivity {
     private Button prev;
     private Button next;
     private SeekBar seekBar;
+    private MediaPlayer mediaPlayer;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,28 +25,44 @@ public class MainActivity extends AppCompatActivity {
         Button play = findViewById(R.id.play);
         seekBar = findViewById(R.id.seekBar);
 
-        MediaPlayer mediaPlayer = new MediaPlayer();
+        mediaPlayer = new MediaPlayer();
         try {
-            mediaPlayer.setDataSource("http://socialdance.stanford.edu/music/Durang_Lancers_1.m4a");
+            mediaPlayer.setDataSource("http://socialdance.stanford.edu/music/Moskwa.mp3");
+            //mediaPlayer.prepare();
         } catch (IOException e) {
             e.printStackTrace();
         }
 
-        mediaPlayer.setOnPreparedListener(new MediaPlayer.OnPreparedListener() {
-            @Override
-            public void onPrepared(MediaPlayer mp) {
-                Toast.makeText(MainActivity.this, "Ready to play", Toast.LENGTH_SHORT).show();
-                mp.start();
-            }
+        mediaPlayer.setOnPreparedListener(mp -> {
+            Toast.makeText(MainActivity.this, "Ready to play", Toast.LENGTH_SHORT).show();
+            mp.start();
+            seekBar.setMax(mediaPlayer.getDuration());
+            seekBar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
+                @Override
+                public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
+                   if(fromUser){
+                        mediaPlayer.seekTo(progress);}
+                }
+
+                @Override
+                public void onStartTrackingTouch(SeekBar seekBar) {
+
+                }
+
+                @Override
+                public void onStopTrackingTouch(SeekBar seekBar) {
+
+                }
+            });
         });
         mediaPlayer.prepareAsync(); 
 
-        play.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                mediaPlayer.start();
-
-            }
-        });
+//        play.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                mediaPlayer.start();
+//
+//            }
+//        });
         }
     }
