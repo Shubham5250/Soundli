@@ -23,51 +23,18 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.098" />
 
-    <Button
-        android:id="@+id/prev"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="48dp"
-        android:layout_marginLeft="48dp"
-        android:layout_marginBottom="152dp"
-        android:text="Prev"
-        app:backgroundTint="#DF4545"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <Button
-        android:id="@+id/play"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="152dp"
-        android:text="Play"
-        app:backgroundTint="#DF4545"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/next"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/prev" />
-
-    <Button
-        android:id="@+id/next"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="48dp"
-        android:layout_marginRight="48dp"
-        android:layout_marginBottom="152dp"
-        android:text="Next"
-        app:backgroundTint="#DF4545"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
-
     <SeekBar
         android:id="@+id/seekBar"
-
+        android:progressTint="@color/black"
         android:layout_width="393dp"
         android:layout_height="22dp"
-        android:layout_marginBottom="36dp"
-        app:layout_constraintBottom_toTopOf="@+id/play"
+        android:layout_marginBottom="20dp"
+        android:indeterminate="false"
+        android:thumb="@android:drawable/ic_notification_overlay"
+        app:layout_constraintBottom_toBottomOf="@+id/imageView3"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:tickMarkTint="#FFFFFF" />
 
     <ImageView
         android:id="@+id/imageView3"
@@ -80,6 +47,52 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.069"
         app:srcCompat="@drawable/imusiclogo" />
+
+    <ImageView
+        android:id="@+id/play"
+        android:layout_width="85dp"
+        android:layout_height="81dp"
+        android:layout_marginBottom="140dp"
+        android:tint="#FF32424A"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/skipNext"
+        app:layout_constraintStart_toEndOf="@+id/skipPrev"
+        app:srcCompat="@drawable/ic_baseline_pause_circle_24" />
+
+    <ImageView
+        android:id="@+id/skipPrev"
+        android:layout_width="81dp"
+        android:layout_height="81dp"
+        android:layout_marginStart="56dp"
+        android:layout_marginLeft="56dp"
+        android:layout_marginBottom="140dp"
+        android:tint="#FF32424A"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:srcCompat="@drawable/ic_baseline_skip_previous_24" />
+
+    <ImageView
+        android:id="@+id/skipNext"
+        android:layout_width="78dp"
+        android:layout_height="78dp"
+        android:layout_marginEnd="56dp"
+        android:layout_marginRight="56dp"
+        android:layout_marginBottom="140dp"
+        android:tint="#FF32424A"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:srcCompat="@drawable/ic_baseline_skip_next_24" />
+
+    <TextView
+        android:id="@+id/developer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        android:text="@string/developer"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

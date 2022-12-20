@@ -6,36 +6,54 @@ import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.SeekBar;
-import android.widget.Toast;
 
 import java.io.IOException;
 
 public class MainActivity extends AppCompatActivity {
-    private Button prev;
-    private Button next;
+
     private SeekBar seekBar;
     private MediaPlayer mediaPlayer;
+    ImageView play;
+    ImageView skipNext;
+    ImageView skipPrev;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        Button play = findViewById(R.id.play);
+        play = findViewById(R.id.play);
         seekBar = findViewById(R.id.seekBar);
+        skipNext = findViewById(R.id.skipNext);
 
-        mediaPlayer = new MediaPlayer();
-        try {
-            mediaPlayer.setDataSource("http://socialdance.stanford.edu/music/Moskwa.mp3");
-            //mediaPlayer.prepare();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        mediaPlayer = MediaPlayer.create(this,R.raw.excuse);
+        mediaPlayer.start();
 
-        mediaPlayer.setOnPreparedListener(mp -> {
-            Toast.makeText(MainActivity.this, "Ready to play", Toast.LENGTH_SHORT).show();
-            mp.start();
+        play.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if(!mediaPlayer.isPlaying()){
+                    mediaPlayer.start();
+                    play.setImageResource(R.drawable.ic_baseline_pause_circle_24);
+                }else{
+                    mediaPlayer.pause();
+                    play.setImageResource(R.drawable.ic_baseline_play_circle_24);
+                }
+            }
+        });
+
+
+//        mediaPlayer = new MediaPlayer();
+//        try {
+//            mediaPlayer.setDataSource("http://socialdance.stanford.edu/music/Moskwa.mp3");
+//            //mediaPlayer.prepare();
+//        } catch (IOException e) {
+//            e.printStackTrace();
+//        }
+
+
             seekBar.setMax(mediaPlayer.getDuration());
             seekBar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
                 @Override
@@ -54,14 +72,19 @@ public class MainActivity extends AppCompatActivity {
 
                 }
             });
-        });
-        mediaPlayer.prepareAsync(); 
+
 
 //        play.setOnClickListener(new View.OnClickListener() {
 //            @Override
 //            public void onClick(View view) {
 //                mediaPlayer.start();
 //
+//            }
+//        });
+//        prev.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                mediaPlayer.pause();
 //            }
 //        });
         }
