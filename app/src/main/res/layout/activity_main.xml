@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#DAF0FFFF"
+    android:background="@drawable/gradient1"
     tools:context=".MainActivity">
 
 
@@ -13,8 +13,8 @@
         android:layout_height="wrap_content"
         android:fontFamily="@font/ubuntu"
         android:text="Enjoy your music!"
-        android:textColor="#DF4545"
-        android:textColorHint="#DF4545"
+        android:textColor="#FF4E4E"
+        android:textColorHint="#1F1F1F"
         android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -90,6 +90,7 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="16dp"
         android:text="@string/developer"
+        android:textColor="#000000"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
@@ -105,7 +106,7 @@
         android:fontFamily="@font/ubuntu"
         android:gravity="center"
         android:inputType="textPersonName"
-        android:textColor="#56A1FF"
+        android:textColor="#102E53"
         android:textSize="20sp"
         app:layout_constraintBottom_toTopOf="@+id/seekBar"
         app:layout_constraintEnd_toEndOf="parent"

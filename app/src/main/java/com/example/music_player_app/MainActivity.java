@@ -22,6 +22,7 @@ public class MainActivity extends AppCompatActivity {
     private SeekBar seekBar;
     MediaPlayer mediaPlayer;
     ImageView play;
+    ImageView imageView3;
     ImageView skipNext;
     TextView textView2;
     ImageView skipPrev;
@@ -42,11 +43,15 @@ public class MainActivity extends AppCompatActivity {
         skipNext = findViewById(R.id.skipNext);
         skipPrev = findViewById(R.id.skipPrev);
         textView2 = findViewById(R.id.textView2);
+        imageView3 = findViewById(R.id.imageView3);
 
         final ArrayList<Integer> songs = new ArrayList<>();
         songs.add(0, R.raw.yugat);
         songs.add(1, R.raw.shivba);
         songs.add(2, R.raw.shwasat);
+        songs.add(3,R.raw.maaybhavani);
+        songs.add(4,R.raw.shoorveer);
+        songs.add(5,R.raw.ranishoor);
         //songs.add(3, R.raw.insane);
         //songs.add(4, R.raw.excuse);
 
@@ -76,12 +81,28 @@ public class MainActivity extends AppCompatActivity {
             private void songNames() {
                 if (currentIndex == 0) {
                     textView2.setText("Yugat Mandali");
+                    imageView3.setImageResource(R.drawable.yugaticon);
+
                 }
                 if (currentIndex == 1) {
                     textView2.setText("Shivba Raja");
+                    imageView3.setImageResource(R.drawable.shivbaraja);
                 }
                 if (currentIndex == 2) {
-                    textView2.setText("Shwasat raja ra dhyasat raja");
+                    textView2.setText("Shwasat Raja Ra Dhyasat Raja");
+                    imageView3.setImageResource(R.drawable.shwasatraja);
+                }
+                if (currentIndex == 3) {
+                    textView2.setText("Maay Bhavani");
+                    imageView3.setImageResource(R.drawable.maaybhavani);
+                }
+                if (currentIndex == 4) {
+                    textView2.setText("Shoorveer 3");
+                    imageView3.setImageResource(R.drawable.shoorver);
+                }
+                if (currentIndex == 5) {
+                    textView2.setText("Rani Nighata Shoor");
+                    imageView3.setImageResource(R.drawable.ranishoor);
                 }
 
             }
@@ -92,6 +113,7 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 if (mediaPlayer != null) {
                     play.setImageResource(R.drawable.ic_baseline_pause_circle_24);
+
 
                 }
 
@@ -114,12 +136,28 @@ public class MainActivity extends AppCompatActivity {
             private void songNames() {
                 if (currentIndex == 0) {
                     textView2.setText("Yugat Mandali");
+                    imageView3.setImageResource(R.drawable.yugaticon);
+
                 }
                 if (currentIndex == 1) {
                     textView2.setText("Shivba Raja");
+                    imageView3.setImageResource(R.drawable.shivbaraja);
                 }
                 if (currentIndex == 2) {
-                    textView2.setText("Shwasat raja ra dhyasat raja");
+                    textView2.setText("Shwasat Raja Ra Dhyasat Raja");
+                    imageView3.setImageResource(R.drawable.shwasatraja);
+                }
+                if (currentIndex == 3) {
+                    textView2.setText("Maay Bhavani");
+                    imageView3.setImageResource(R.drawable.maaybhavani);
+                }
+                if (currentIndex == 4) {
+                    textView2.setText("Shoorveer");
+                    imageView3.setImageResource(R.drawable.shoorver);
+                }
+                if (currentIndex == 5) {
+                    textView2.setText("Rani Nighata Shoor");
+                    imageView3.setImageResource(R.drawable.ranishoor);
                 }
 
             }
@@ -129,7 +167,8 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 if (mediaPlayer != null) {
-                    play.setImageResource(R.drawable.ic_baseline_play_circle_24);
+                    play.setImageResource(R.drawable.ic_baseline_pause_circle_24);
+                    imageView3.setImageResource(R.drawable.shwasatraja);
                 }
 
                 if (currentIndex > 0) {
@@ -151,12 +190,28 @@ public class MainActivity extends AppCompatActivity {
             private void songNames() {
                 if (currentIndex == 0) {
                     textView2.setText("Yugat Mandali");
+                    imageView3.setImageResource(R.drawable.yugaticon);
+
                 }
                 if (currentIndex == 1) {
                     textView2.setText("Shivba Raja");
+                    imageView3.setImageResource(R.drawable.shivbaraja);
                 }
                 if (currentIndex == 2) {
                     textView2.setText("Shwasat raja ra dhyasat raja");
+                    imageView3.setImageResource(R.drawable.shwasatraja);
+                }
+                if (currentIndex == 3) {
+                    textView2.setText("Maay Bhavani");
+                    imageView3.setImageResource(R.drawable.maaybhavani);
+                }
+                if (currentIndex == 4) {
+                    textView2.setText("Shoorveer");
+                    imageView3.setImageResource(R.drawable.shoorver);
+                }
+                if (currentIndex == 5) {
+                    textView2.setText("Rani Nighata Shoor");
+                    imageView3.setImageResource(R.drawable.ranishoor);
                 }
 
             }
